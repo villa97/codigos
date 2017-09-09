@@ -69,10 +69,12 @@ double Sen(double sen)
 	double resultado=1;
 	cout<<"Sen(x) ";
 	double a=3;
+	int signo=-1;
 	for(double terminos = 1; terminos<=sen;terminos++)
 		{
-			resultado += ((pow(sen,a))/Factorial(a));
+			resultado += ((pow(sen,a))/Factorial(a))*signo;
 			a+=2;
+			signo*=-1;
 		}
 	cout<<" = "<<resultado<<endl;
 	return resultado;
@@ -82,10 +84,12 @@ double Cos(double cos)
 	double resultado=1;
 	cout<<"Cos(x)";
 	int a=2;
+	int signo=-1;
 	for(double terminos=1;terminos<=cos;terminos++)
 		{
-			resultado += ((pow(cos,a))/Factorial(a));
+			resultado += ((pow(cos,a))/Factorial(a))*signo;
 			a+=2;
+			signo*=-1;
 		}
 	cout<<" = "<<resultado<<endl;
 }
