@@ -3,14 +3,14 @@
 using namespace std;
 
 void FuncionMenu();
-double Cos(double cos);
-double Sen(double sen);
-double Log(double log);
+double Cos(double cos,double x);
+double Sen(double sen,double x);
+double Log(double log,double x);
 double Factorial(double fac);
 int main()
 {
 	int menu;
-	double lim;
+	double lim, x;
 		do{system("cls");
 			FuncionMenu();
 			cout<<"Ingresa tu seleccion: ";
@@ -18,21 +18,21 @@ int main()
 			switch(menu)
 				{
 					case 1:
-						cout<<"Ingresa el limite de terminos: ";
-						cin>>lim;
-						Sen(lim);
+						cout<<"Ingresa el limite de terminos: "; 	cin>>lim;
+						cout<<"Ingresa el valor de X: ";  	cin>>x;
+						cout<<"Sen(x) = "<<Sen(lim,x)<<endl;
 						system("PAUSE");
 						break;
 					case 2:
-						cout<<"Ingresa el limite de terminos: ";
-						cin>>lim;
-						cout<<Cos(lim);
+						cout<<"Ingresa el limite de terminos: ";   cin>>lim;
+						cout<<"Ingresa el valor de X: ";   cin>>x;
+						cout<<"Cos(x) = "<<Cos(lim,x)<<endl;
 						system("PAUSE");
 						break;
 					case 3:
-						cout<<"Ingresa el limite de terminos: ";
-						cin>>lim;
-						Log(lim);
+						cout<<"Ingresa el limite de terminos: ";   cin>>lim;
+						cout<<"Ingresa el valor de X: ";	cin>>x;
+						cout<<"Log(x) = "<<Log(lim,x)<<endl;
 						system("PAUSE");
 						break;
 					case 0:
@@ -42,7 +42,6 @@ int main()
 						cout<<"Seleccion Invalida"<<endl;
 				}
 		}while(menu!=0);
-	return 0;
 }
 
 void FuncionMenu()
@@ -64,42 +63,40 @@ double Factorial(double fac)
 		fact*=ciclo;
 	return fact;
 }
-double Sen(double sen)
+double Sen(double sen,double x)
 {
-	double resultado=1;
-	cout<<"Sen(x) ";
+	double resultado=0;
 	double a=3;
 	int signo=-1;
 	for(double terminos = 1; terminos<=sen;terminos++)
 		{
-			resultado += ((pow(sen,a))/Factorial(a))*signo;
+			resultado += ((pow(x,a))/Factorial(a))*signo;
 			a+=2;
 			signo*=-1;
 		}
-	cout<<" = "<<resultado<<endl;
+	resultado += x;
 	return resultado;
 }
-double Cos(double cos)
+double Cos(double cos,double x)
 {
-	double resultado=1;
-	cout<<"Cos(x)";
-	int a=2;
-	int signo=-1;
+	double resultado=0;
+	int a=2, signo=-1;
 	for(double terminos=1;terminos<=cos;terminos++)
 		{
-			resultado += ((pow(cos,a))/Factorial(a))*signo;
+			resultado += ((pow(x,a))/Factorial(a))*signo;
 			a+=2;
 			signo*=-1;
 		}
-	cout<<" = "<<resultado<<endl;
+	resultado += x;
+	return resultado;
 }
-double Log(double log)
+double Log(double log,double x)
 {
 	double resultado=0;
-	cout<<"Log(x)";
 	for(double terminos=1;terminos<=log;terminos++)
 		{
 			resultado += ((pow(((log -1)/log),terminos)) * (1/terminos));		
 		}
-	cout<<" = "<<resultado<<endl;
+	resultado += x;
+	return resultado;
 }
