@@ -8,19 +8,17 @@ void histograma(int lim);
 
 int main()
 {
-	int menu, dado=0,ciclo,vec[6]={0},vec2[12]={0};
+	int menu, dado=0,ciclo,vec[6]={0},vec2[11]={0};
 	srand(time(NULL));
 	do{system("cls");
 		Menu();
 		cout<<"ingresa tu seleccion: ";
 		cin>>menu;
-		dado=0;
 		switch(menu)
 		{
 			case 1:
 				for(ciclo=0;ciclo<100;ciclo++)
-					vec[Dado()-1]++;
-									
+					vec[Dado()-1]++;					
 				for(int pinta=0;pinta<6;pinta++)
 					{
 						cout<<pinta+1<<".- "<<vec[pinta]<<"]";
@@ -34,11 +32,11 @@ int main()
 				for(ciclo=0;ciclo<100;ciclo++)
 					{
 						dado=(Dado()+Dado());
-						vec2[dado-1]++;
+						vec2[dado-2]++;
 					}					
-				for(int pinta=0;pinta<12;pinta++)
+				for(int pinta=0;pinta<11;pinta++)
 					{
-						cout<<pinta+1<<".- "<<vec2[pinta]<<"]";
+						cout<<pinta+2<<".- "<<vec2[pinta]<<"]";
 						histograma(vec2[pinta]);
 					}
 				system("PAUSE");
