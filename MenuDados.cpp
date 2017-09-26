@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #include<ctime>
 using namespace std;
-void Menu();
+int Menu();
 int Dado();
 void histograma(int lim);
 
@@ -11,9 +11,7 @@ int main()
 	int menu, dado=0,ciclo,vec[6]={0},vec2[11]={0};
 	srand(time(NULL));
 	do{system("cls");
-		Menu();
-		cout<<"ingresa tu seleccion: ";
-		cin>>menu;
+		menu=Menu();
 		switch(menu)
 		{
 			case 1:
@@ -43,24 +41,24 @@ int main()
 				for(ciclo=0;ciclo<12;ciclo++)
 					vec2[ciclo]=0;
 				break;
-			case 0:
-				menu = 0;
-				break;
-			default:
-				cout<<"Error de seleccion."<<endl;
-				system("PAUSE");
-		}
+			}
 	}while(menu!=0);
 	return 0;
 }
 
-void Menu()
+int Menu()
 {
+	int op;
 	cout<<"--------MENU--------"<<endl
 		<<"1-Lanzar 1 Dado."<<endl
 		<<"2-Lanzar 2 Dado."<<endl
 		<<"0-Salir."<<endl
 		<<"--------------------"<<endl;
+	do {
+		cout<<"ingresa tu opcion valida:";
+		cin>>op;
+	}while (op<0 || op>2);
+	return op;
 }
 
 int Dado()

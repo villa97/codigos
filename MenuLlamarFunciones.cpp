@@ -43,6 +43,8 @@ int main()
 				Invertir(vec,tam);
 				system("PAUSE");
 				break;
+			case 0:
+				break;
 			default:
 				cout<<"Seleccion erronea";
 		}
@@ -104,11 +106,8 @@ void Invertir(int vec[], int tam)
 		for(int ciclo=0;ciclo<tam/2;ciclo++)
 			{
 				temporal = vec[ciclo];
-				if(cambio>=tam/2)
-					{
-						vec[ciclo]=vec[cambio-1];
-						vec[cambio-1]=temporal;
-						cambio--;	
-					}
+				vec[ciclo]=vec[cambio-1];
+				vec[cambio-1]=temporal;
+				cambio--;	
 			}	
 }
