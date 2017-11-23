@@ -30,7 +30,6 @@ int buscar(char cad[],char bus[])
 	int contcad,contbus=0;
 	for(contcad=0;cad[contcad];contcad++)
 	{
-			
 		if(bus[contbus]==cad[contcad])
 			{
 			contbus++;
